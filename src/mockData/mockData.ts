@@ -1,4 +1,29 @@
+import config from "../config/config.mjs";
 
+const mockApiUrl = "https://mock-api.test.com";
+const mockApiKey = "mock-api-key";
+
+export const mockConfig = {
+	...config,
+	apiUrl: mockApiUrl,
+	apiKey: mockApiKey
+}
+
+export const mockAddMixPostBody = {
+	mixId: "123456789",
+	mixTitle: "Test Mix Title"
+}
+
+export const mockMixCount = {
+	mixCount: "20"
+}
+
+
+export const mockEmailSendParams = {
+	name: "test name",
+	email: "test@example.com",
+	message: "This is a test message"
+}
 
 export const mockContentEntry = {
     pageTitle: "DJ X-ITE",

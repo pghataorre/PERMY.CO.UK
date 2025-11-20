@@ -1,11 +1,11 @@
 import './MusicMixItems.scss';
 import MixTapeDetails from '../MixTapeDetails/MixTapeDetails';
-import MixTapeLogo from '../MixTapeLogo/MixTapeLogo'; 
+import MixTapeLogo from '../MixTapeLogo/MixTapeLogo';
 import addMixCount from '../../api/addMixCount';
 import { IMixCountPostBody } from '../../types/mixCountTypes'
 
 type TMusicListItem = {
-	mixItem: TMixItem; 
+	mixItem: TMixItem;
 	itemIndex: number;
 	playMix: (playIndex: number) => void;
 }
@@ -20,14 +20,7 @@ type TMixItem = {
 const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {
 
 	const sendMixCount = async (mixBody: IMixCountPostBody) => {
-		try {
-			const response = await addMixCount(mixBody);
-			const res = await response.json();
-
-			return res;
-		} catch (error) {
-			console.log(error);
-		}
+		await addMixCount(mixBody);
 	}
 
 	return (

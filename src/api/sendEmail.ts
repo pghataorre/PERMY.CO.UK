@@ -7,27 +7,25 @@ type TEmailBody = {
 }
 
 const sendEmail = async (body: TEmailBody): Promise<boolean> => {
-    try {
-        const res = await fetch(`${config.apiUrl}/email`, {
-            method: 'POST',
-            headers: {
-                "Content-type": "application/json",
-                "Accept": "*/*"
-            },
-            body: JSON.stringify(body),
-        });
+	try {
+			const res = await fetch(`${config.apiUrl}/email`, {
+					method: 'POST',
+					headers: {
+							"Content-type": "application/json",
+							"Accept": "*/*"
+					},
+					body: JSON.stringify(body),
+			});
 
-        if(!res.ok) {
-            return false;
-        }
+			if(!res.ok) {
+					return false;
+			}
 
-        return true;
+			return true;
 
-    } catch(error) {
-        console.log('error ==================== ', error);
-        return false;
-    }
-  }
-  
-  export default sendEmail;
-  
+	} catch(error) {
+			return false;
+	}
+}
+
+export default sendEmail;
