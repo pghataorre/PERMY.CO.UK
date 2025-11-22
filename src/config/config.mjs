@@ -12,7 +12,12 @@ const config = {
 	maxEmailFreeTextLength: 300,
 	preCountDownMins: 30,
 	backgroundSpinnerUrl: './public/images/dj-xite-logo.png',
-	defaultVideo: '/video/permy.mp4'
+	defaultVideo: '/video/permy.mp4',
+	contentFullDefaultKey: 'wbp1AL9SvovWWYCq6c92r',
+	liveStreamCssClassNames: {
+		mobile: 'live-stream-date-container-mobile',
+		other: 'live-stream-date-container show-details'
+	}
 };
 
 export default config;

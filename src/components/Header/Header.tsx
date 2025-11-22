@@ -2,7 +2,7 @@ import './Header.scss';
 import '../Navigation/Navigation.scss'
 import linkToSection from './HeaderHelpers';
 import NavIcon from '../Icons/NavIcon';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Navigation from '../Navigation/Navigation';
 
 const Header = () => {
@@ -22,12 +22,7 @@ const Header = () => {
     if (pageName) {
       linkToSection(event, pageName);
     }
-
-  } 
-
-
-  useEffect(() => {
-  },[])
+  }
 
   return (
     <div className="header-nav">

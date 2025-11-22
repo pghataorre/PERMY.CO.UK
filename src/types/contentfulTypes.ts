@@ -5,17 +5,18 @@ export interface IContext {
   content?: IContentEntry | undefined;
   hasError: boolean;
   socialMedia: ISocialMediaCollection | undefined;
+	liveStreamMedia: ILiveSession | undefined;
 }
 
 export interface ILiveSession {
-  liveStreamTitle: string;
-  startDateTime: string;
-  endDateTime: string;
-  streamDescription: Document,
-  streamLogo: string;
-  scheduledStream: string;
-  defaultStreamingDescription: Document;
-  videoPreloadUrl: string;
+  liveStreamTitle: string | undefined;
+  startDateTime: string | undefined;
+  endDateTime: string | undefined;
+  streamDescription: Document | undefined,
+  streamLogo: string | undefined;
+  scheduledStream: string | undefined;
+  defaultStreamingDescription: Document | undefined;
+  videoPreloadUrl: string  | undefined;
 }
 
 export interface ILiveStreamData {
@@ -43,70 +44,80 @@ export interface IContentEntry {
 }
 
 export interface IImageCollection {
-    metadata: {
-        tags: string[] | [];
-        concepts: string[] | [];
-    },
-    sys: {
-        space: {
-            sys: {
-                type: string;
-                linkType: string;
-                id: string;
-            }
-        },
-        id: string;
-        type: string;
-        createdAt: string;
-        updatedAt: string;
-        environment: {
-            sys: {
-                id: string;
-                type: string;
-                linkType: string;
-            }
-        },
-        publishedVersion: number;
-        revision: number;
-        locale: string;
-    },
-    fields: {
-        title: string;
-        description: string | undefined;
-        file: {
-            url: string;
-            details: {
-                size: number;
-                image: {
-                    width: number;
-                    height: number;
-                }
-            },
-            fileName: string;
-            contentType:  string;
-        }
-    }
+	metadata: {
+		tags: string[] | [];
+		concepts: string[] | [];
+	},
+	sys: {
+		space: {
+			sys: {
+				type: string;
+				linkType: string;
+				id: string;
+			}
+		},
+		id: string;
+		type: string;
+		createdAt: string;
+		updatedAt: string;
+		environment: {
+			sys: {
+				id: string;
+				type: string;
+				linkType: string;
+			}
+		},
+		publishedVersion: number;
+		revision: number;
+		locale: string;
+	},
+	fields: {
+		title: string;
+		description: string | undefined;
+		file: {
+			url: string;
+			details: {
+				size: number;
+				image: {
+					width: number;
+					height: number;
+				}
+			},
+			fileName: string;
+			contentType:  string;
+		}
+	}
 }
 
-export interface IMixCollection {
-  includes: {};
-  items: [{
-    fields: IMixPage
+export type IContentCollection = {
+  includes?: {
+    Entry?: any[];
+    Asset?: any[];
+  };
+  items: {
+    fields: IContentProperties
     sys: {};
     metadata: {};
-  }];
+  }[];
   limit: number;
   skip: number;
-  sys: {
-    type: string;
-  };
+  sys?: { type: string };
   total: number;
-}
+};
 
-export interface IMixPage {
-  mixPageTitle: string;
-  mixPageDescription: IMixDetailedContent;
-  mixTapeCollection: IMusicMixEntries[];
+
+export interface IContentProperties {
+  mixPageTitle?: string | undefined;
+  mixPageDescription?: IMixDetailedContent | undefined;
+  mixTapeCollection?: IMusicMixEntries[] | undefined;
+	liveStreamTitle?: string | undefined;
+	startDateTime?: string | undefined;
+	endDateTime?: string | undefined;
+	streamDescription?: Document | undefined;
+	streamFlyer?: IImageCollection[] | undefined;
+	scheduledStream?: string | undefined;
+	defaultStreamingDescription?: Document | undefined;
+	videoPreloader?: IImageCollection | undefined;
 }
 
 export interface IMusicMixEntries {
@@ -124,13 +135,11 @@ export type IMixDetailedContent = [{
   sys: {}
 }];
 
-
 export interface ICleanedMixContent {
   pageTitle: string;
   pageDescription: Document;
   mixTapeCollection: IMusicMixEntries[];
 }
-
 
 export type TStreamDateDetails = {
   liveStreamTitle: string | undefined;

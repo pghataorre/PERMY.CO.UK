@@ -1,7 +1,7 @@
 export interface ITeam {
-  Count: Number;
+  Count: number;
   Items: ITeamData[];
-  ScannedCount: Number;
+  ScannedCount: number;
 }
 
 export type ITeamData = {

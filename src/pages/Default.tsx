@@ -8,7 +8,7 @@ import MyMixes from './MyMixes';
 import LiveSession from './LiveSession';
 import linkToSection from '../components/Header/HeaderHelpers';
 import { StreamStateContext } from '../context/StreamProvider/streamStateContext';
- 
+
 const Default = (): JSX.Element => {
 	const {content, hasError} = useContext(ContentfulContext);
 	const { streamDateDetails } = useContext(StreamStateContext);
@@ -23,7 +23,7 @@ const Default = (): JSX.Element => {
 
 	return (
 		<>
-			{!hasError ? 
+			{!hasError ?
 			(<>
 				<div className="default-page" id="default-page">
 					{ content && (
@@ -44,7 +44,7 @@ const Default = (): JSX.Element => {
 				<div className="contact-page" id="contact-page">
 					{ content && (<><GetInTouch /></>)}
 				</div>
-			</>) 
+			</>)
 			: (
 			<div className="site-loading-error">
 				<div className="site-loading-container">

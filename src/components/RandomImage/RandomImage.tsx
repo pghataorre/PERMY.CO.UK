@@ -4,14 +4,13 @@ import './Randomimage.scss';
 import config from '../../config/config.mjs';
 import { shuffleArray } from './generateRandomImageIndex';
 
-
 const RandomImage = ({
-	contentEntry, 
+	contentEntry,
 }: {
-	contentEntry: IContentEntry, 
+	contentEntry: IContentEntry,
 	}
 ): JSX.Element => {
-	const { 
+	const {
 		backgroundImagesCollection,
 	} = contentEntry;
 
@@ -21,11 +20,10 @@ const RandomImage = ({
 	const loaderCSSUrl: string = `url(${config.backgroundSpinnerUrl})`;
 
 	const createBackgroundCSSUrls = useCallback(() => {
-		const images = backgroundImagesCollection.map((item) => `url(http:${item.fields.file.url})`);
+		const images = backgroundImagesCollection.map((item) => `url(https:${item.fields.file.url})`);
 		images.unshift(loaderCSSUrl);
 		setBackImage(images);
 		setImageCount(Number(images.length));
-
 	}, [backgroundImagesCollection, loaderCSSUrl]);
 
 	useEffect(() => {
@@ -49,22 +47,15 @@ const RandomImage = ({
 		return () => {
 			clearInterval(imageChanger);
 		}
-		
 	}, [loader, backImage, loaderCSSUrl, imageCount, createBackgroundCSSUrls]);
 
 	return (
 		<>
 		{
 			loader ? (
-				<div className="default-back-image-container">
-				</div>
-			) : 
-			<>
-				<div className="back-image-container" style={{backgroundImage: backImage[imageCount]}}></div>
-			</>
-
-
-		
+				<div className="default-back-image-container" />
+			) :
+				<div className="back-image-container" style={{backgroundImage: backImage[imageCount]}} />
 		}
 		</>
 	);
