@@ -5,7 +5,7 @@ export interface IContext {
   content?: IContentEntry | undefined;
   hasError: boolean;
   socialMedia: ISocialMediaCollection | undefined;
-	liveStreamMedia: ILiveSession | undefined;
+	liveStreamMedia?: ILiveSession | undefined;
 }
 
 export interface ILiveSession {

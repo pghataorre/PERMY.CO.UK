@@ -1,4 +1,4 @@
-import { getTwitchParentUrl } from "../../../utils/utlis";
+import { getTwitchParentUrl } from "../../../helpers/liveStream";
 import './TwitchFrame.scss';
 
 const TwitchFrame = () => {
@@ -12,5 +12,5 @@ const TwitchFrame = () => {
         </iframe>
     </div>
   )};
-  
+
   export default TwitchFrame;
