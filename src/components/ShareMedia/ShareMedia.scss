@@ -131,6 +131,7 @@
 					top: $spacing-xl;
 					left: $spacing-s;
 					transition: visibility $transition-timing;
+					padding-left: 0;
 
 					li {
 						border: none;
