@@ -33,7 +33,7 @@ const ShareMedia = ({ mixItem }: TMixTapeItem) => {
 						</a>
 					</li>
 					<li>
-						<a href="instagram://user?username=permjitghataorre" target="_blank" rel="noreferrer">
+						<a href="https://www.instagram.com/permjitghataorre" target="_blank" rel="noreferrer">
 							<InstagramIcon />
 						</a>
 					</li>
