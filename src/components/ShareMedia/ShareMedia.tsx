@@ -2,21 +2,19 @@ import FaceBookIcon from "../Icons/FaceBookIcon";
 import InstagramIcon from "../Icons/InstagramIcon";
 import ShareIcon from "../Icons/ShareIcon";
 import WhatsAppIcon from "../Icons/WhatsAppIcon";
-import './ShareMedia.scss';
 import { TMixTapeItem } from '../../types/mixTapeDetailTypes';
 import config from '../../config/config.mjs';
-
+import './ShareMedia.scss';
 
 const ShareMedia = ({ mixItem }: TMixTapeItem) => {
 	const { baseUrl, liveMixPathName, shareLinkPath } = config;
-	const liveSessionUrl = `${baseUrl}/${liveMixPathName}`;
+	const fullBaseUrlWithQuery = `${baseUrl}?${shareLinkPath}=`
+	const liveSessionUrl = `${fullBaseUrlWithQuery}${liveMixPathName}`;
 	const mixItemUrl = mixItem?.mixUrl
 		? mixItem?.mixUrl
 		: liveSessionUrl;
-
-
 	const whatsAppText = mixItem?.mixUrl
-		? encodeURI(`I want to share this music mix with you from ---  ${baseUrl}/${shareLinkPath}/${mixItem?.mixId}`)
+		? encodeURI(`I want to share this music mix with you from ---  ${fullBaseUrlWithQuery}${mixItem?.mixId}`)
 		: encodeURI(`I want to share A Live Stream mix from --- ${liveSessionUrl}`);
 
 	return (

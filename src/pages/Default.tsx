@@ -16,14 +16,15 @@ const Default = (): JSX.Element => {
 
 	useEffect(() => {
 		const { liveMixPathName, shareLinkPath } = config;
-		const pathName = window.location.pathname;
+		const pathName = window.location.search;
 
-		if (pathName === liveMixPathName) {
-			linkToSection(undefined, liveMixPathName);
+		if (pathName.includes(liveMixPathName)) {
+			const liveMixPath = pathName.split("=")[1];
+			linkToSection(undefined, liveMixPath);
 		}
 
 		if (pathName.includes(shareLinkPath)) {
-			const sharePath = pathName.split("/share/")[1];
+			const sharePath = pathName.split("=")[1];
 			linkToSection(undefined, sharePath);
 		}
 	}, [streamDateDetails]);
@@ -42,7 +43,7 @@ const Default = (): JSX.Element => {
 							</>
 						)}
 					</div>
-					<div className="live-session" id="live-session-page">
+					<div className="live-session" id={config.liveMixPathName}>
 						<LiveSession />
 					</div>
 					<div className="music-page" id="mixes-page">

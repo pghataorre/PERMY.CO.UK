@@ -7,7 +7,6 @@ import ModalProvider from "./context/ModalProvider/ModalProvider";
 import StreamStateProvider from "./context/StreamProvider/StreamStateProvider";
 import './styles/App.scss';
 
-
 const App = (): JSX.Element => {
 	return (
 		<ContentfulProvider>
@@ -17,7 +16,7 @@ const App = (): JSX.Element => {
 						<Header />
 						<Routes>
 							<Route index element={<Default />} />
-							<Route path="/share/:path" element={<Default />} />
+							<Route path="/share?:path" element={<Default />} />
 							<Route path="*" element={<NoPage />} />
 						</Routes>
 					</div>
