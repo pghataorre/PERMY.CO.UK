@@ -18,7 +18,9 @@ const config = {
 	liveStreamCssClassNames: {
 		mobile: 'live-stream-date-container-mobile',
 		other: 'live-stream-date-container show-details'
-	}
+	},
+	liveMixPathName:'live-session-page',
+	shareLinkPath: 'share'
 };
 
 export default config;

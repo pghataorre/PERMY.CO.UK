@@ -8,14 +8,15 @@ import config from '../../config/config.mjs';
 
 
 const ShareMedia = ({ mixItem }: TMixTapeItem) => {
-	const liveSessionUrl = `${config.baseUrl}?section=live-session-page`;
+	const { baseUrl, liveMixPathName, shareLinkPath } = config;
+	const liveSessionUrl = `${baseUrl}/${liveMixPathName}`;
 	const mixItemUrl = mixItem?.mixUrl
 		? mixItem?.mixUrl
 		: liveSessionUrl;
 
 
 	const whatsAppText = mixItem?.mixUrl
-		? encodeURI(`I want to share this music mix with you from ---  ${config.baseUrl}#${mixItem?.mixId}`)
+		? encodeURI(`I want to share this music mix with you from ---  ${baseUrl}/${shareLinkPath}/${mixItem?.mixId}`)
 		: encodeURI(`I want to share A Live Stream mix from --- ${liveSessionUrl}`);
 
 	return (
