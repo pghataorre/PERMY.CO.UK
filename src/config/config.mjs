@@ -1,5 +1,6 @@
 const config = {
 	apiUrl: 'https://api.permy.co.uk',
+	baseUrl: 'http://www.permy.co.uk',
 	timingAllocation: 1000,
 	dateLocaleString: 'en-GB',
 	maxGameTime: 105,

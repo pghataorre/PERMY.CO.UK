@@ -1,145 +1,148 @@
 @import '../../styles/variables.scss';
 
 .social-media-share-container {
-    background-color: $custom-black;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
+	background-color: $custom-black;
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
 
 
-    button.play-button-secondary {
-        position: relative;
-        border: 0.2em solid $link-color-selected;
-        height: $spacing-l;
-        width: $spacing-l;
-        border-radius: 50%;
-        background-color: transparent;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 1px;
+	button.play-button-secondary {
+		position: relative;
+		border: 0.2em solid $link-color-selected;
+		height: $spacing-l;
+		width: $spacing-lx;
+		border-radius: 50%;
+		background-color: transparent;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 1px;
 
-        svg {
-            position: absolute;
-            top: center;
-            left: center;
-            fill: $link-color-selected;
-            height: $spacing-m;
-            width: $spacing-m;
-        }
+		svg {
+			position: absolute;
+			top: center;
+			left: center;
+			fill: $link-color-selected;
+			height: $spacing-m;
+			width: $spacing-m;
+		}
 
-        &:hover {
-            border-color: $custom-white;
+		&:hover {
+			border-color: $custom-white;
 
-            svg {
-                fill: $custom-white;
-                stroke: 0.4em;
-            }
-        }
-    }
+			svg {
+				fill: $custom-white;
+				stroke: 0.4em;
+			}
+		}
+	}
 
+	button.share-button {
+		position: relative;
+		padding: 0;
+		margin: 0;
+		border: none;
+		height: $spacing-l;
+		width: $spacing-l; // compensate for hover;
+		background-color: transparent;
+		display: flex;
+		justify-content: space-between;
+		margin-right: $spacing-l;
+		transition: fill $transition-timing ease-in-out;
 
-    button.share-button {
-        position: relative;
-        padding: 0;
-        margin: 0;
-        border: none;
-        height: $spacing-l;
-        width: $spacing-xl; // compensate for hover;
-        background-color: transparent;
-        display: flex;
-        justify-content: space-between;
-        margin-right: $spacing-l;
-        transition: fill $transition-timing ease-in-out;
-        
-        svg {
-            width: $spacing-l;
-            height: $spacing-l;
-            stroke: $link-color-selected;
-        }
+		svg {
+			width: $spacing-l;
+			height: $spacing-l;
+			stroke: $link-color-selected;
+		}
 
-        .social-media-list {
-            display: none;
-            opacity: 0;
+		.social-media-list {
+			width: 100%;
+			display: none;
+			opacity: 0;
+		}
 
-        }
+		&:hover {
+			svg {
+				stroke: $custom-white;
+			}
 
-        &:hover {
-            svg {
-                stroke: $custom-white;
-            }
+			.social-media-list {
+				display: flex;
+				position: absolute;
+				padding: 0px;
+				top: 0;
+				left: 0;
+				padding-left: $spacing-xl;
+				z-index: 70;
+				flex-direction: row;
+				opacity: 1;
+				cursor: pointer;
 
-            .social-media-list {
-                display: flex;
-                position: absolute;
-                padding: 0px;
-                margin: 0px;
-                top: 0;
-                left: $spacing-xl;
-                z-index: 70;
-                flex-direction: row;
-                opacity: 1;
+				li {
 
-                li {
+					border: none;
+					padding: 0 $spacing-s 0 0;
+					margin: 0px;
 
-                    border: none;
-                    padding: 0 $spacing-s 0  0;
-                    margin: 0px;
-
-                    svg {
-                        fill: $custom-white;
-                    }
-                }
-            }
-        }
-    }
-
+					svg {
+						fill: $custom-white;
+					}
+				}
+			}
+		}
+	}
 }
 
 @media only screen and (min-width: $bp-mobile-max) {
-    .social-media-share-container {
-        width: auto;
+	.social-media-share-container {
+		width: auto;
 
-        button.share-button {
-            position: relative;
-            padding: 0;
-            margin: 0 $spacing-m 0 0;
-            border: none;
-            width: $spacing-xl;
-            height: $spacing-xl;
-            background-color: transparent;
-            display: flex;
-            justify-content: flex-end;
+		button.play-button-secondary {
+			width: $spacing-l;
+		}
 
-            .social-media-list {
-                visibility: hidden;
-            }
+		button.share-button {
+			position: relative;
+			padding: 0;
+			margin: 0 $spacing-m 0 0;
+			border: none;
+			width: $spacing-xl;
+			height: $spacing-xl;
+			background-color: transparent;
+			display: flex;
+			justify-content: flex-end;
 
-            &:hover {
-                svg {
-                    stroke: $custom-white;
-                }
+			.social-media-list {
+				visibility: hidden;
+			}
 
-                .social-media-list {
-                    visibility: visible;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: flex-start;
-                    top: $spacing-xl;
-                    left: $spacing-s;
-                    transition: visibility $transition-timing;
+			&:hover {
+				svg {
+					stroke: $custom-white;
+				}
 
-                    li {
-                        border: none;
-                        padding: 0 0 $spacing-s 0;
-                        margin: 0px;
+				.social-media-list {
+					visibility: visible;
+					display: flex;
+					flex-direction: column;
+					justify-content: flex-start;
+					top: $spacing-xl;
+					left: $spacing-s;
+					transition: visibility $transition-timing;
 
-                        svg {
-                            fill: $custom-white;
-                        }
-                    }
-                }
-            }
-        }
-    }
+					li {
+						border: none;
+						padding: 0 0 $spacing-s 0;
+						margin: 0px;
+
+						svg {
+							fill: $custom-white;
+						}
+					}
+				}
+			}
+		}
+	}
 }

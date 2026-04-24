@@ -3,6 +3,7 @@ import MixTapeDetails from '../MixTapeDetails/MixTapeDetails';
 import MixTapeLogo from '../MixTapeLogo/MixTapeLogo';
 import addMixCount from '../../api/addMixCount';
 import { IMixCountPostBody } from '../../types/mixCountTypes'
+import { TMixItem } from '../../types/contentfulTypes'
 
 type TMusicListItem = {
 	mixItem: TMixItem;
@@ -10,14 +11,8 @@ type TMusicListItem = {
 	playMix: (playIndex: number) => void;
 }
 
-type TMixItem = {
-    mixId: string;
-    mixTapeTitle: string;
-    mixTapeImageUrl: string;
-	mixUrl: string;
-}
 
-const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Element => {
+const MusicListItem = ({ mixItem, itemIndex, playMix }: TMusicListItem): JSX.Element => {
 
 	const sendMixCount = async (mixBody: IMixCountPostBody) => {
 		await addMixCount(mixBody);
@@ -26,8 +21,8 @@ const MusicListItem = ({mixItem, itemIndex, playMix}: TMusicListItem): JSX.Eleme
 	return (
 		<li>
 			<h2 className="show-mobile">{mixItem.mixTapeTitle}</h2>
-			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount}/>
-			<MixTapeDetails mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount}/>
+			<MixTapeLogo mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount} />
+			<MixTapeDetails mixItem={mixItem} itemIndex={itemIndex} playMix={playMix} sendMixCount={sendMixCount} />
 		</li>
 	)
 }

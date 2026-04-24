@@ -1,10 +1,10 @@
 export interface IMixCountPostBody {
-    mixId: string;
-    mixTitle: string;
+	mixId: string;
+	mixTitle: string;
 }
 
 export interface IMixCountSuccessResponse {
-    attempts?: number;
-    added?: boolean;
-    mixCount?: number;
+	attempts?: number;
+	added?: boolean;
+	mixCount?: number;
 }
